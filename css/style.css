@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
+* { -webkit-tap-highlight-color: transparent; }
+
+html, body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #fcfcfc;
+    overscroll-behavior-y: contain;
+}
+
+.app-shell {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background-color: #fcfcfc;
+    position: relative;
+    box-shadow: 0 0 40px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5rem; 
+}
+@media (min-width: 481px) {
+    body { background-color: #f1f1f1; padding: 24px 0; }
+    .app-shell {
+        min-height: calc(100vh - 48px);
+        border-radius: 28px;
+        overflow: hidden;   
+        overflow: clip;     
+    }
+}
+
+.header-gradient {
+    background: #e11d48;
+    border-bottom: 5px solid #000000;
+    position: sticky;
+    top: 0;
+    z-index: 30;
+}
+.piket-card {
+    transition: all 0.25s ease;
+    border: 1px solid #f1f1f1;
+}
+.piket-card:active {
+    transform: scale(0.98);
+}
+.icon-box {
+    background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+    color: #e11d48;
+    min-width: 3.5rem;
+    height: 3.5rem;
+}
+input, textarea {
+    color: white !important;
+}
+input::placeholder, textarea::placeholder {
+    color: #9ca3af !important;
+}
+
+.page { display: none; }
+.page.active { display: block; animation: fadeIn 0.2s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px);} to { opacity: 1; transform: translateY(0);} }
+
+.bottom-nav {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border-top: 1px solid #eee;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    box-shadow: 0 -4px 16px rgba(0,0,0,0.05);
+    z-index: 40;
+}
+.nav-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    flex: 1;
+    padding: 10px 4px 8px;
+    color: #9ca3af;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    background: none;
+    border: none;
+}
+.nav-btn i { font-size: 18px; }
+.nav-btn.active { color: #e11d48; }
+.nav-btn.active i { transform: translateY(-1px); }
+
+.today-badge {
+    background: rgba(255,255,255,0.18);
+}
+
+@media print { .no-print, .bottom-nav { display: none; } }
+
+.school-logo {
+    height: 3.5rem;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.header-clock {
+    margin-top: 1rem;
+}
+
+.header-inner {
+    display: block;
+}
+
+.main-content {
+    flex: 1; 
+    padding: 1.5rem 1rem;
+}
+
+.app-shell img { max-width: 100%; }
+.table-scroll { overflow-x: auto; }
+
+.app-shell .report-card {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 640px) {
+    
+    .app-shell #jadwal-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 768px) {
+
+.app-shell .header-gradient {
+        position: static;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+    }
+    .header-clock {
+        margin-top: 0;
+        min-width: 280px;
+    }
+
+.app-shell .header-gradient { order: 1; }
+    .app-shell .bottom-nav {
+        order: 2;
+        position: sticky;
+        top: 0;              
+        bottom: auto;
+        justify-content: center;
+        gap: 0.5rem;
+        border-top: none;
+        border-bottom: 1px solid #eee;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+        padding-bottom: 0;
+    }
+    .app-shell .main-content { order: 3; }
+    .app-shell footer        { order: 4; }
+
+.app-shell .nav-btn {
+        flex: 0 1 auto;
+        flex-direction: row;
+        gap: 8px;
+        padding: 16px 24px;
+        font-size: 12px;
+        border-bottom: 3px solid transparent;
+    }
+    .app-shell .nav-btn.active { border-bottom-color: #e11d48; }
+    .app-shell .nav-btn.active i { transform: none; }
+
+.app-shell { padding-bottom: 0; }
+
+.main-content { padding: 2rem; }
+
+.app-shell .quick-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .app-shell .quick-grid .quick-btn { grid-column: span 1; }
+
+.app-shell #panduan-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+.app-shell .report-card { max-width: 720px; }
+}
+
+@media (min-width: 1024px) {
+
+    .app-shell .header-gradient {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+    .school-logo { height: 4.5rem; }
+    .app-shell .school-title { font-size: 1.5rem; line-height: 2rem; }
+
+    .main-content { padding: 2.5rem 3rem; }
+
+.app-shell .beranda-grid.active {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 2rem;
+        align-items: start;
+    }
+    .app-shell .beranda-grid .page-title { grid-column: 1 / -1; }
+    .app-shell .beranda-grid .quick-section { margin-top: 0; }
+
+.app-shell .beranda-grid .quick-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .app-shell .beranda-grid .quick-grid .quick-btn:last-child {
+        grid-column: span 2;
+    }
+
+.app-shell #jadwal-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+.app-shell #panduan-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (hover: hover) {
+    .app-shell .nav-btn:hover { color: #e11d48; }
+    .app-shell .piket-card:hover { box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+}
+
